@@ -2,17 +2,17 @@ import random
 import time
 
 words_to_guess = ["Apple", "Banana", "Orange", "House", "Head", "Body", "Book", "Smile", "Red", "Blue", "Sun", "Coffee", "Skirt", "Shirt", "Shoe", "Bottle", "Beauty", "car", "Yellow", "Black", "Green"]
-print("Welcome to hangman in python.\nGame is case sensitive.\nIn case a letter is repeated more than once, you will have to write it again, basing on your own thoughts.")
-time.sleep(2)
 word_selected = words_to_guess[random.randint(0, 9)]
 character_count = len(word_selected)
+words_correct = [" "] * character_count
 tries = 5
 score = 0
 answer = False
 answer_2 = False
 game_over = False
 
-words_correct = [" "] * character_count
+print("Welcome to hangman in python.\nGame is case sensitive.\nIn case a letter is repeated more than once, you will have to write it again, basing on your own thoughts.")
+time.sleep(2)
 
 def check(tr, ans, ans2, game):
     if tr > 0 and not game:
