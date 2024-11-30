@@ -9,12 +9,13 @@ character_count = len(word_selected)
 tries = 5
 score = 0
 answer = False
+answer_2 = False
 game_over = False
 
 words_correct = [" "] * character_count
 
-def check(tr, ans, game):
-    if tr != 0 and not game:
+def check(tr, ans, ans2, game):
+    if tr > 0 and not game:
         
         character_selected = input("Type a character that you think might be in the word: ")
         print(" ")
@@ -27,8 +28,11 @@ def check(tr, ans, game):
         
         for i in range (0, word_spliced_length):
             if character_selected == word_spliced[i]:
-                words_correct[i] = character_selected
-                ans = True
+                if words_correct[i] != character_selected:
+                    words_correct[i] = character_selected
+                    ans = True
+                else:
+                    ans2 = True
                 
         print(words_correct)
             
@@ -38,14 +42,20 @@ def check(tr, ans, game):
         if ans:
             print("Your character was right!")
             ans = False
-            check(tr, ans, game)
+            check(tr, ans, ans2, game)
+        elif ans2:
+            print("You already typed that character.")
+            ans2 = False
+            tr = tr - 1
+            print(f"Lifes remaining: {tr}")
+            check(tr, ans, ans2, game)
         elif not ans:
             print("your character was not in the word.")
             tr = tr - 1 
             print(f"Lifes remaining: {tr}")
-            check(tr, ans, game)
+            check(tr, ans, ans2, game)
     else:
         print("Game is over.\n")
         print(f"word was: {word_selected}")
 
-check(tries, answer, game_over)
+check(tries, answer, answer_2,game_over)
