@@ -11,7 +11,7 @@ answer = False
 answer_2 = False
 game_over = False
 
-print("Welcome to hangman in python.\nGame is case sensitive.\nIn case a letter is repeated more than once, you will have to write it again, basing on your own thoughts.")
+print("Welcome to hangman in python.\nGame is case sensitive.")
 time.sleep(2)
 
 def check(tr, ans, ans2, game):
