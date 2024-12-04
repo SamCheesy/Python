@@ -29,21 +29,5 @@ print(juan)
 #output: empty dictionary
 
 
-#CHALLENGE:
-option = False
-students = {}
-while not option:
-    student = input("who is the student: ")
-    grade = input("what is their grade: ")
-    students[student] = grade
-    print("Student added successfully.")
-    print(students)
-    selection = input("would you like to continue adding students? (Y/N): ")
-    if selection == "Y":
-        option = False
-    elif selection == "N":
-        option = True
-    else:
-        print("Please answer with Y or N.")
-        
+
     
